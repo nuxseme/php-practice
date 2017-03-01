@@ -1,0 +1,13 @@
+{
+    "name": "composer/test",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^1.22"
+    },
+    "authors": [
+        {
+            "name": "He Ya Dong",
+            "email": "nuxseme@gmail.com"
+        }
+    ]
+}
