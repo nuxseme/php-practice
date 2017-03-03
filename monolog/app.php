@@ -7,17 +7,23 @@
 include  'vendor/autoload.php';
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Monolog\Handler\MongoDBHandler;
+include  'handler\MongoDBHandler.php';
 $log_path = 'log';
 // create a log channel
 $log = new Logger('test');
 
 
-
+$manager = new \MongoDB\Driver\Manager('mongodb://192.168.107.231:27017');
+$mongoDBHandler = new \monolog\handler\MongoDBHandler($manager,'php.log',Logger::DEBUG);
 $log->pushHandler(new StreamHandler($log_path, Logger::WARNING));
-
+$log->pushHandler($mongoDBHandler);
 // add records to the log
-$log->warning('Foo');
+$log->pushProcessor(function ($record) {
+    $record['extra']['dummy'] = 'Hello world!';
+
+    return $record;
+});
+$log->warning('Foo bubble false');
 $log->error('Bar');
 
 
