@@ -1,0 +1,2 @@
+[2017-03-03 07:09:34] test.WARNING: Foo bubble false [] {"dummy":"Hello world!"}
+[2017-03-03 07:09:34] test.ERROR: Bar [] {"dummy":"Hello world!"}
