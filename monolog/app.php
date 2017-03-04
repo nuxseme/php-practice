@@ -14,10 +14,16 @@ $log = new Logger('test');
 
 
 
-$log->pushHandler(new StreamHandler($log_path, Logger::WARNING));
+$log->pushHandler(new StreamHandler($log_path, Logger::DEBUG));
 
 // add records to the log
 $log->warning('Foo');
 $log->error('Bar');
+$log->pushProcessor(function ($record) {
+    $record['extra']['dummy'] = 'Hello world!';
+
+    return $record;
+});
+$log->info('info',['hello'=>'world']);
 
 
