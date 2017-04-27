@@ -51,7 +51,7 @@ function auto_load($class)
  */
 
 spl_autoload_register('autoload');
-spl_autoload_unregister('autoload');
+//spl_autoload_unregister('autoload');
 spl_autoload_register('auto_load');
 
 $c = new C();
