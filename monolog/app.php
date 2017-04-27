@@ -13,10 +13,15 @@ $log_path = 'log';
 $log = new Logger('test');
 
 
+
+
+$log->pushHandler(new StreamHandler($log_path, Logger::DEBUG));
+
 $manager = new \MongoDB\Driver\Manager('mongodb://192.168.107.231:27017');
 $mongoDBHandler = new \monolog\handler\MongoDBHandler($manager,'php.log',Logger::DEBUG);
 $log->pushHandler(new StreamHandler($log_path, Logger::WARNING));
 $log->pushHandler($mongoDBHandler);
+
 // add records to the log
 $log->pushProcessor(function ($record) {
     $record['extra']['dummy'] = 'Hello world!';
@@ -25,5 +30,11 @@ $log->pushProcessor(function ($record) {
 });
 $log->warning('Foo bubble false');
 $log->error('Bar');
+$log->pushProcessor(function ($record) {
+    $record['extra']['dummy'] = 'Hello world!';
+
+    return $record;
+});
+$log->info('info',['hello'=>'world']);
 
 
