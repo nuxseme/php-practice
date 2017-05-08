@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../resource/jquery.min.js"> </script>
+<!--<script>-->
+ <!--$.ajax({-->
+     <!--url:"http://www.nuxse.com/index.php",-->
+     <!--type:'get',-->
+     <!--dataType : 'json',-->
+     <!--success:function (response) {-->
+         <!--console.log(response);-->
+     <!--}-->
+ <!--});-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+    <!--function getmessage(response){-->
+        <!--console.log('回调方式传递');-->
+        <!--console.log(response);-->
+    <!--}-->
+<!--</script>-->
+<!--<script src="http://www.nuxse.com/index.php?callback=getmessage"></script>-->
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        $.ajax({
+            type: "get",
+            async: false,
+            url: "http://www.nuxse.com/index.php",
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            //jsonpCallback:"?",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+            success: function(response){
+                console.log(response,'success');
+            },
+            error: function(){
+                alert('fail');
+            }
+        });
+    });
+</script>
