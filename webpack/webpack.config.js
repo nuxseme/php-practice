@@ -5,17 +5,25 @@
  */
 
 /**
- * Created by Administrator on 2017/05/12.
+ * Created by Administrator on 2017/05/15.
  */
+var path = require('path');
 module.exports = {
-    entry: "./test.js",
+    entry: './app/index.js',
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" }
+        rules: [
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.(eot|otf|ttf|woff|woff2|svg)\w*/,
+                loader: 'file-loader',
+            }
         ]
     }
 };
