@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+<!--ps:Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令： binding的值从data中替换-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="app">
+
+    <span v-bind:id="a"></span>
+    <span v-bind:id="hello"></span>
+
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            a:'hello',
+            hello:'ok',
+        },
+        watch:{
+            message:{
+                handler:function () {
+                    console.log('change');
+                    $('#hello').text('ok');
+                },
+                //deep:true
+            }
+        },
+    })
+</script>

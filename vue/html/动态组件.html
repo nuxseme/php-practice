@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<div id="app">
+    <button  v-on:click="change('component1')" >动态切换组件1</button>
+
+    <button  v-on:click="change('component2')">动态切换组件2</button>
+    <!--<keepalive>-->
+    <component v-bind:is="currentView"></component>
+    <!--</keepalive>-->
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var component1 = Vue.extend({
+        template:'<span> hello template1</span>'
+    });
+    var component2 = Vue.extend({
+        template:'<span> hello template3</span>'
+    });
+    var app = new Vue({
+        el: '#app',
+        data:{
+            currentView:'component1',
+        },
+        components:{
+            component1:component1,
+            component2:component2,
+        },
+        methods:{
+            change:function (component) {
+                this.currentView = component;
+            }
+        }
+    })
+</script>

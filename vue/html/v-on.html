@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example">
+<button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            ok: true,
+            message:'hello',
+        },
+        mounted:function () {
+        },
+        methods: {
+            warn: function (message, event) {
+                // 现在我们可以访问原生事件对象
+                if (event) event.preventDefault();
+                alert(message);
+                console.log(event);
+            }
+        }
+
+    })
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example">
+    <template v-if="message">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>{{message}}</p>
+    </template>
+    <span v-if="message">{{message}}</span>
+</div>
+
+</body>
+</html>
+
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            ok: true,
+            message:'hello',
+        },
+        mounted:function () {
+        }
+
+    })
+</script>

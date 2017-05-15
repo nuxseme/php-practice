@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<style>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0
+    }
+</style>
+<body>
+
+<div id="app">
+    <button v-on:click="show=!show">渐隐</button>
+    <transition name="fade">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script src="../js/component/pagination.js" ></script>
+<script type="text/javascript" >
+    var app = new Vue({
+        el: '#app',
+        data: {
+           show:true
+        },
+        methods:{
+
+        }
+    })
+</script>

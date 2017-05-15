@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div onclick="eventHandle(event)" id="outSide" style="width:200px; height:200px; background:#000; padding:50px">
+
+    <div id="inSide1" onclick="eventHandle1(event)"  style="width:100px; height:100px; background:#CCC"></div>
+    <div id="inSide2" onclick="eventHandle1(event)" style="width:100px; height:100px; background:#CCC"></div>
+
+</div>
+
+<script type="text/javascript">
+
+    //本例子只在外面盒子定义了处理方法，而这个方法一样可以捕获到子元素点击行为并处理它。假设有成千上万子元素要处理，难道我们要为每个元素加“onclick="eventHandle(event)"”？显然没有这种集中处理的方法来的简单，同时它的性能也是更高的。
+
+    function eventHandle(e)
+
+    {
+        //e.stopPropagation();
+
+        var e=e||window.event;
+
+        var obj=e.target||e.srcElement;
+
+        alert(obj.id+' was click')
+
+    }
+    function eventHandle1(e)
+
+    {
+        e.stopPropagation();
+
+        var e=e||window.event;
+
+        var obj=e.target||e.srcElement;
+
+        alert(obj.id+' was click222')
+
+    }
+
+
+</script>
+</body>
+</html>
