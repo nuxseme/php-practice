@@ -18,3 +18,4 @@ print preg_replace($pattern, '\\2', $str);
 //$regex = "<img[\s]+src[\s]*=[\s]*((['\"](?<src>[^\'"]*)[\\'"])|(?<src>[^\s]*))";
 //preg_match(,$str,$matches);
 //print_r($matches);
+

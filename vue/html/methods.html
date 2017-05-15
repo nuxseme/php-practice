@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example">
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage1() }}"</p>
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            message: 'Hello'
+        },
+        computed: {
+            // a computed getter
+            reversedMessage: function () {
+                // `this` points to the vm instance
+                return Date.now();
+            }
+        },
+        methods:{
+            // a computed getter
+            reversedMessage1: function () {
+                // `this` points to the vm instance
+                return Date.now();
+            }
+        }
+    })
+</script>

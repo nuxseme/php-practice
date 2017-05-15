@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+
+<div id="app">
+
+    <input v-model="message"/>
+    <v-component-pagination v-bind:message_from_parent="message" cur="3" all="5" v-on:child-click="child_click"> </v-component-pagination>
+<span>当前点击{{current}}</span>
+</div>
+</body>
+</html>
+
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script src="../js/component/pagination.js" ></script>
+<script type="text/javascript" >
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message:'hello child',
+            current:null,
+        },
+        components:{
+            'v-component-pagination':paginationComponent
+        },
+        watch:{
+            message:{
+                handler:function () {
+                    console.log('change');
+                    $('#hello').text('ok');
+                },
+                //deep:true
+            }
+        },
+        methods:{
+            child_click:function (current) {
+                this.current = current;
+            }
+        }
+    })
+</script>

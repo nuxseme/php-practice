@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body  >
+<div id="app">
+<!--<div v-show="true" style="display:block">-->
+    <!--{{ message }}-->
+
+    <!--&lt;!&ndash;<span v-bind:title="message">&ndash;&gt;-->
+    <!--&lt;!&ndash;鼠标悬停几秒钟查看此处动态绑定的提示信息！&ndash;&gt;-->
+  <!--&lt;!&ndash;</span>&ndash;&gt;-->
+<!--</div>-->
+
+<div v-if="message">
+    {{ message }}
+</div>
+</div>
+</body>
+</html>
+<!--<script data-main="../js/index" src="../js/lib/require.js"></script>-->
+
+<script src="../js/lib/jquery-1.11.3.min.js" ></script>
+<script src="../js/lib/vue.js" ></script>
+<!--<script type="text/javascript">-->
+    <!--require(['load']);-->
+<!--</script>-->
+<!--<script src="../js/lib/jquery-1.11.3.min.js"></script>-->
+<!--<script src="../js/lib/vue.js" ></script>-->
+<!--<script type="text/javascript" >-->
+    <!--var app = new Vue({-->
+        <!--el: '#app',-->
+        <!--data: {-->
+            <!--message: 'Hello Vue!'-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+<script type="text/javascript" >
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            ok: true,
+            message:'hello',
+        },
+        mounted:function () {
+        }
+
+    })
+</script>

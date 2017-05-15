@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+  ~ @link www.github.com/nuxseme/php-practice
+  ~ @copyright Copyright (c) 2017 nuxseme
+  ~ @license MIT
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" style="display: none" v-show="true">
+    {{message}}
+    <span v-once>{{onceMessage}} {{message}}</span>
+</div>
+</body>
+</html>
+<script src="../js/lib/jquery-1.11.3.min.js"></script>
+<script src="../js/lib/vue.js" ></script>
+<script type="text/javascript" >
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            onceMessage:'onceMessage',
+        },
+        //ready vue2.0已移除
+        ready:function () {
+            console.log('ready');
+            this.message = 'i am ready';
+        },
+        beforeCreate:function () {
+            console.log('beforeCreate');
+        },
+        created:function () {
+            console.log('created');
+        },
+        beforeMount:function () {
+            console.log('beforeMount');
+            this.message = 'beforeMount';
+        },
+        mounted:function () {
+            console.log('mounted');
+            this.message = 'mount';
+        },
+        beforeDestroy:function () {
+            console.log('beforeDestroy');
+        },
+        destroy:function () {
+            console.log('destroy');
+        },
+        watch:{
+            message:{
+                handler:function () {
+                    console.log('change');
+                },
+                //deep:true
+            }
+        },
+    })
+</script>
