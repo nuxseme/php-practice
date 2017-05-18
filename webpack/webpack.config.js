@@ -8,6 +8,7 @@
  * Created by Administrator on 2017/05/15.
  */
 var path = require('path');
+//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: './app/index.js',
     output: {
@@ -20,10 +21,18 @@ module.exports = {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
             },
+            // {
+            //     use: ExtractTextPlugin.extract({
+            //         use: 'css-loader'
+            //     })
+            // },
             {
                 test: /\.(eot|otf|ttf|woff|woff2|svg)\w*/,
                 loader: 'file-loader',
             }
         ]
-    }
+    },
+    // plugins: [
+    //             new ExtractTextPlugin('styles.css'),
+    //         ]
 };
