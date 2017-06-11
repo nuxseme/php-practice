@@ -23,3 +23,6 @@ echo $verify,PHP_EOL;//true
 $password_info = password_get_info($ciphertext);
 print_r($password_info);
 
+var_dump(password_needs_rehash($ciphertext, PASSWORD_DEFAULT, ['cost' => 10]));
+var_dump(password_needs_rehash($ciphertext, PASSWORD_DEFAULT, ['cost' => 11]));
+
