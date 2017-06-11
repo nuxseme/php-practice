@@ -1,38 +1,17 @@
-/*
- * @link www.github.com/nuxseme/php-practice
- * @copyright Copyright (c) 2017 nuxseme
- * @license MIT
- */
-
-/**
- * Created by Administrator on 2017/05/15.
- */
-var path = require('path');
-//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: './app/index.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: __dirname + '/assets/',
+        filename: '[name].bundle.js'
     },
     module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
-            },
-            // {
-            //     use: ExtractTextPlugin.extract({
-            //         use: 'css-loader'
-            //     })
-            // },
-            {
-                test: /\.(eot|otf|ttf|woff|woff2|svg)\w*/,
-                loader: 'file-loader',
-            }
+        loaders: [
+            // 使用babel-loader解析js或者jsx模块
+            {test: /\.js\.jsx$/, loader: 'babel'},
+            // 使用css-loader解析css模块
+            {test: /\.css$/, loader: 'style-loader!css-loader'}
+            // or another way
+            //{test: /\.css$/, loader: ['style', 'css']}
         ]
-    },
-    // plugins: [
-    //             new ExtractTextPlugin('styles.css'),
-    //         ]
+    }
 };
