@@ -39,3 +39,5 @@ $books = new Books();
 $books['a'] = 'a';
 $books['b'] = 'b';
 print_r($books->getPool());
+print_r($books);
+echo $books['c'];
